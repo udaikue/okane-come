@@ -9,18 +9,24 @@
 /* Begin PBXBuildFile section */
 		F9C4FAA32B43B25000CE77A4 /* OkaneComeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FAA22B43B25000CE77A4 /* OkaneComeApp.swift */; };
 		F9C4FAA52B43B25000CE77A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FAA42B43B25000CE77A4 /* ContentView.swift */; };
-		F9C4FAA72B43B25000CE77A4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FAA62B43B25000CE77A4 /* Item.swift */; };
+		F9C4FAA72B43B25000CE77A4 /* Cost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FAA62B43B25000CE77A4 /* Cost.swift */; };
 		F9C4FAA92B43B25400CE77A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C4FAA82B43B25400CE77A4 /* Assets.xcassets */; };
 		F9C4FAAC2B43B25400CE77A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C4FAAB2B43B25400CE77A4 /* Preview Assets.xcassets */; };
+		F9E4C2762B43D6F4002A96D0 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4C2752B43D6F4002A96D0 /* InputView.swift */; };
+		F9E4C2782B43D776002A96D0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4C2772B43D776002A96D0 /* ListView.swift */; };
+		F9E4C27A2B43D788002A96D0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4C2792B43D788002A96D0 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F9C4FA9F2B43B25000CE77A4 /* OkaneCome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkaneCome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C4FAA22B43B25000CE77A4 /* OkaneComeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkaneComeApp.swift; sourceTree = "<group>"; };
 		F9C4FAA42B43B25000CE77A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F9C4FAA62B43B25000CE77A4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F9C4FAA62B43B25000CE77A4 /* Cost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cost.swift; sourceTree = "<group>"; };
 		F9C4FAA82B43B25400CE77A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9C4FAAB2B43B25400CE77A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F9E4C2752B43D6F4002A96D0 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F9E4C2772B43D776002A96D0 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F9E4C2792B43D788002A96D0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,10 @@
 			children = (
 				F9C4FAA22B43B25000CE77A4 /* OkaneComeApp.swift */,
 				F9C4FAA42B43B25000CE77A4 /* ContentView.swift */,
-				F9C4FAA62B43B25000CE77A4 /* Item.swift */,
+				F9E4C2752B43D6F4002A96D0 /* InputView.swift */,
+				F9E4C2772B43D776002A96D0 /* ListView.swift */,
+				F9E4C2792B43D788002A96D0 /* CategoryView.swift */,
+				F9C4FAA62B43B25000CE77A4 /* Cost.swift */,
 				F9C4FAA82B43B25400CE77A4 /* Assets.xcassets */,
 				F9C4FAAA2B43B25400CE77A4 /* Preview Content */,
 			);
@@ -140,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E4C2782B43D776002A96D0 /* ListView.swift in Sources */,
 				F9C4FAA52B43B25000CE77A4 /* ContentView.swift in Sources */,
-				F9C4FAA72B43B25000CE77A4 /* Item.swift in Sources */,
+				F9E4C27A2B43D788002A96D0 /* CategoryView.swift in Sources */,
+				F9E4C2762B43D6F4002A96D0 /* InputView.swift in Sources */,
+				F9C4FAA72B43B25000CE77A4 /* Cost.swift in Sources */,
 				F9C4FAA32B43B25000CE77A4 /* OkaneComeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
