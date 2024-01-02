@@ -10,17 +10,15 @@ import SwiftData
 
 @Model
 final class Cost {
-    var timestamp: Date
     var category: Int
     var yen: Int
     var memo: String
     var date: Date
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(memo: String, yen: Int) {
         self.category = 0
-        self.yen = 1000
-        self.memo = "メモメモ"
+        self.yen = yen
+        self.memo = memo
         self.date = Date()
     }
 }

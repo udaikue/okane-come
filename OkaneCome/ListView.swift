@@ -9,8 +9,16 @@ import SwiftUI
 import SwiftData
 
 struct ListView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var costs: [Cost]
+    
     var body: some View {
-        Text("今月の入力履歴")
+        List {
+            ForEach(costs) {cost in
+                Text(cost.memo)
+                Text(String(cost.yen))
+            }
+        }
     }
 }
 
