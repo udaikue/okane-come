@@ -63,10 +63,7 @@
 			children = (
 				F9C4FAA22B43B25000CE77A4 /* OkaneComeApp.swift */,
 				F9C4FAA42B43B25000CE77A4 /* ContentView.swift */,
-				F9E4C2752B43D6F4002A96D0 /* InputView.swift */,
-				F9E8558A2B4BC20700A71FB3 /* ButtonStyle.swift */,
-				F9E4C2772B43D776002A96D0 /* ListView.swift */,
-				F9E4C2792B43D788002A96D0 /* CategoryView.swift */,
+				F9E8558D2B4BE37600A71FB3 /* Menu */,
 				F9C4FAA62B43B25000CE77A4 /* Cost.swift */,
 				F9C4FAA82B43B25400CE77A4 /* Assets.xcassets */,
 				F9C4FAAA2B43B25400CE77A4 /* Preview Content */,
@@ -80,6 +77,17 @@
 				F9C4FAAB2B43B25400CE77A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F9E8558D2B4BE37600A71FB3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4C2752B43D6F4002A96D0 /* InputView.swift */,
+				F9E8558A2B4BC20700A71FB3 /* ButtonStyle.swift */,
+				F9E4C2772B43D776002A96D0 /* ListView.swift */,
+				F9E4C2792B43D788002A96D0 /* CategoryView.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
