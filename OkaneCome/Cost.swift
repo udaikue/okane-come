@@ -15,8 +15,8 @@ final class Cost {
     var memo: String
     var date: Date
     
-    init(memo: String, yen: Int) {
-        self.category = 0
+    init(category: Int, yen: Int, memo: String) {
+        self.category = category
         self.yen = yen
         self.memo = memo
         self.date = Date()

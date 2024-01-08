@@ -11,7 +11,8 @@ import SwiftData
 struct InputView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var costs: [Cost]
-    @State var inputYen: Int = 0
+    @State var selectedCategory: Int = 0
+    @State var inputYen: String = ""
     @State var inputMemo: String = ""
     
     var body: some View {
@@ -21,7 +22,7 @@ struct InputView: View {
                 HStack {
                     // 食費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 1
                     }, label: {
                         Text("食費")
                     })
@@ -30,7 +31,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 日用品
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 2
                     }, label: {
                         Text("日用品")
                     })
@@ -39,7 +40,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 光熱費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 3
                     }, label: {
                         Text("光熱費")
                     })
@@ -50,7 +51,7 @@ struct InputView: View {
                 HStack {
                     // 交際費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 4
                     }, label: {
                         Text("交際費")
                     })
@@ -59,7 +60,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 美容
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 5
                     }, label: {
                         Text("美容")
                     })
@@ -68,7 +69,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 特別費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 6
                     }, label: {
                         Text("特別費")
                     })
@@ -79,7 +80,7 @@ struct InputView: View {
                 HStack {
                     // 家賃
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 7
                     }, label: {
                         Text("家賃")
                     })
@@ -88,7 +89,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 通信費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 8
                     }, label: {
                         Text("通信費")
                     })
@@ -97,7 +98,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 娯楽
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 9
                     }, label: {
                         Text("娯楽")
                     })
@@ -108,7 +109,7 @@ struct InputView: View {
                 HStack {
                     // 医療
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 10
                     }, label: {
                         Text("医療")
                     })
@@ -117,7 +118,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 衣料・雑貨
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 11
                     }, label: {
                         Text("衣料・雑貨")
                     })
@@ -126,7 +127,7 @@ struct InputView: View {
                     .buttonStyle(CategoryButtonStyle())
                     // 旅費
                     Button(action: {
-                        setCategory()
+                        selectedCategory = 12
                     }, label: {
                         Text("旅費")
                     })
@@ -138,7 +139,6 @@ struct InputView: View {
             
             HStack {
                 Button(action: {
-                    setCategory()
                 }, label: {
                     Text("\(inputYen)")
                         .font(.largeTitle)
@@ -161,21 +161,21 @@ struct InputView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Button(action: {
-                        addCost()
+                        inputYen += "7"
                     }, label: {
                         Text("7")
                     })
                     .border(Color.gray, width: 1)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "8"
                     }, label: {
                         Text("8")
                     })
                     .border(Color.gray, width: 1)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "9"
                     }, label: {
                         Text("9")
                     })
@@ -183,7 +183,7 @@ struct InputView: View {
                     .buttonStyle(NumberButtonStyle())
                     // 金額をクリア
                     Button(action: {
-                        addCost()
+                        inputYen = ""
                     }, label: {
                         Image(systemName: "clear.fill")
                     })
@@ -193,21 +193,21 @@ struct InputView: View {
                 
                 HStack(spacing:0) {
                     Button(action: {
-                        addCost()
+                        inputYen += "4"
                     }, label: {
                         Text("4")
                     })
                     .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "5"
                     }, label: {
                         Text("5")
                     })
                     .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "6"
                     }, label: {
                         Text("6")
                     })
@@ -215,7 +215,7 @@ struct InputView: View {
                     .buttonStyle(NumberButtonStyle())
                     // 日付設定
                     Button(action: {
-                        addCost()
+                        // ToDo: カレンダーを開く
                     }, label: {
                         Image(systemName: "calendar")
                     })
@@ -225,28 +225,28 @@ struct InputView: View {
                 
                 HStack(spacing:0) {
                     Button(action: {
-                        addCost()
+                        inputYen += "1"
                     }, label: {
                         Text("1")
                     })
                     .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "2"
                     }, label: {
                         Text("2")
                     })
                     .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "3"
                     }, label: {
                         Text("3")
                     })
                     .border(Color.gray, width: 1)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen = "0"
                     }, label: {
                         Text("入")
                     })
@@ -256,14 +256,14 @@ struct InputView: View {
                 
                 HStack(spacing:0) {
                     Button(action: {
-                        addCost()
+                        inputYen += "0"
                     }, label: {
                         Text("0")
                     })
                     .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        inputYen += "00"
                     }, label: {
                         Text("00")
                     })
@@ -271,14 +271,14 @@ struct InputView: View {
                     .buttonStyle(NumberButtonStyle())
                     // メモ入力
                     Button(action: {
-                        addCost()
+                        // ToDo: メモ欄を表示する
                     }, label: {
                         Image(systemName: "square.and.pencil")
                     })
                     .border(Color.gray, width: 1)
                     .buttonStyle(NumberButtonStyle())
                     Button(action: {
-                        addCost()
+                        addCost(selectedCategory: selectedCategory, inputYen: inputYen)
                     }, label: {
                         Text("力")
                     })
@@ -291,12 +291,9 @@ struct InputView: View {
         }
     }
     
-    private func setCategory() {
-        print("Selected")
-    }
-    
-    private func addCost(){
-        let newCost = Cost(memo: inputMemo, yen: inputYen)
+    private func addCost(selectedCategory: Int, inputYen: String){
+        var yen = Int(inputYen) ?? 0
+        let newCost = Cost(category: selectedCategory, yen: yen, memo: inputMemo)
         modelContext.insert(newCost)
     }
 }
