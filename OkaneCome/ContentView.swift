@@ -16,7 +16,7 @@ struct ContentView: View {
         TabView {
             InputView()
                 .tabItem {
-                    Label("ホーム", systemImage: "square.and.pencil")
+                    Label("入力", systemImage: "square.and.pencil")
                 }
             ListView()
                 .tabItem {

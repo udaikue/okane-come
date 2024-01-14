@@ -15,8 +15,8 @@ struct ListView: View {
     var body: some View {
         List {
             ForEach(costs) {cost in
-                Text(cost.memo)
-                Text(String(cost.yen))
+                Text(category[cost.category])
+                Text("\(String(cost.yen)) 円")
             }
         }
     }
