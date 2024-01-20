@@ -7,16 +7,39 @@
 
 import SwiftUI
 import SwiftData
+import Foundation
+
+let today = Date()
+let calendar = Calendar(identifier: .gregorian)
+let nowYear = String(calendar.component(.year, from: today))
+let nowMonth = String(calendar.component(.month, from: today))
+let displayYear: String = nowYear
+let displayMonth: String = nowMonth
+let displayYearMonth: String = displayYear + displayMonth
 
 struct ListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var costs: [Cost]
+    @Query(filter: #Predicate<Cost> { $0.yearMonth == displayYearMonth },
+           sort: \Cost.day)
+    var costs: [Cost]
     
     var body: some View {
-        List {
-            ForEach(costs) {cost in
-                Text(category[cost.category])
-                Text("\(String(cost.yen)) 円")
+        NavigationStack {
+            VStack {
+                List {
+                    ForEach(costs, id:\.self) {cost in
+                        Section {
+                            let category = category[cost.category]
+                            NavigationLink("¥\(String(cost.yen)) \(category)") {
+                                Text("¥\(String(cost.yen)) \(category)")
+                            }
+                        } header: {
+                            Text("\(displayMonth) 月 \(cost.day) 日")
+                        }
+                    }
+                    .listStyle(DefaultListStyle())
+                }
+                .navigationTitle(Text("\(displayYear) 年 \(displayMonth) 月"))
             }
         }
     }

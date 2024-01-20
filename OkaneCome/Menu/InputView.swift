@@ -172,6 +172,7 @@ struct InputView: View {
             // Todo: デフォルト非表示にする
             TextField("メモを入力", text: $inputMemo)
                 .textFieldStyle(.roundedBorder)
+                .border(Color.gray, width: 2)
                 .padding()
             
             VStack(spacing: 0) {
@@ -311,7 +312,10 @@ struct InputView: View {
     
     private func addCost(selectedCategory: Int, inputYen: String){
         let yen = Int(inputYen) ?? 0
-        let newCost = Cost(category: selectedCategory, yen: yen, memo: inputMemo)
+        let year = String(calendar.component(.year, from: Date()))
+        let month = String(calendar.component(.month, from: Date()))
+        let day = String(calendar.component(.day, from: Date()))
+        let newCost = Cost(category: selectedCategory, yen: yen, memo: inputMemo, yearMonth: year + month, day: day)
         modelContext.insert(newCost)
         self.inputYen = ""
     }
