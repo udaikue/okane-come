@@ -30,18 +30,25 @@ struct ListView: View {
                     ForEach(costs, id:\.self) {cost in
                         Section {
                             let category = category[cost.category]
-                            NavigationLink("¥\(String(cost.yen)) \(category)") {
-                                Text("¥\(String(cost.yen)) \(category)")
-                            }
+                            Text("¥\(String(cost.yen)) \n\(category) \(cost.memo)")
                         } header: {
                             Text("\(displayMonth) 月 \(cost.day) 日")
                         }
                     }
+                    .onDelete(perform: { indexSet in
+                        for index in indexSet {
+                            deleteCost(cost: costs[index])
+                        }
+                    })
                     .listStyle(DefaultListStyle())
                 }
                 .navigationTitle(Text("\(displayYear) 年 \(displayMonth) 月"))
             }
         }
+    }
+    
+    private func deleteCost(cost: Cost) {
+        modelContext.delete(cost)
     }
 }
 
